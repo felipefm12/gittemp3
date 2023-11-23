@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="catsvsdogs">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cats vs Dogs -- Neighbors</title>
+  <base href="/index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="docker-compose, docker, stack">
+  <meta name="author" content="Docker">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body ng-controller="statsCtrl">
+  <div id="content-container">
+    <div id="content-container-center">
+      <div id="neighbors">
+        <h2>Nearest Neighbors</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Neighbors</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="(userId, neighborList) in neighbors">
+              <td>{{ userId }}</td>
+              <td>{{ neighborList.join(', ') }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="socket.io.js"></script>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
